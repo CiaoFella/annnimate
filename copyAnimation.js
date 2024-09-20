@@ -1,33 +1,49 @@
-async function copyAnimation(animationName, animationCategory) {
+document.addEventListener("DOMContentLoaded", () => {
+  // Add buttons dynamically
+  const animationLink = document.querySelector(".animation-link");
+  if (animationLink) {
+    const htmlButton = document.createElement("button");
+    htmlButton.setAttribute("data-copy-button", "html");
+    htmlButton.textContent = "Copy as HTML";
+
+    const webflowButton = document.createElement("button");
+    webflowButton.setAttribute("data-copy-button", "webflow");
+    webflowButton.textContent = "Copy as Webflow";
+
+    animationLink.insertAdjacentElement("afterend", htmlButton);
+    animationLink.insertAdjacentElement("afterend", webflowButton);
+  }
+
+  // Add event listeners to the buttons
+  const buttons = document.querySelectorAll("[data-copy-button]");
+  buttons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const animationItem = document.querySelector(".animation-link");
+      if (animationItem) {
+        const animationName = "basic-button";
+        const animationCategory = "hover";
+        const userChoice = event.target.getAttribute("data-copy-button");
+        copyAnimation(animationName, animationCategory, userChoice);
+      }
+    });
+  });
+});
+
+async function copyAnimation(animationName, animationCategory, userChoice) {
   const response = await fetch(
     `https://your-netlify-url/animations/${animationCategory}/${animationName}.html`
   );
   const animationData = await response.text();
 
-  const userChoice = getUserChoice(); // Function to get user choice (HTML or Webflow)
   let processedData;
 
-  if (userChoice === "HTML") {
+  if (userChoice === "html") {
     processedData = processHTML(animationData);
-  } else if (userChoice === "Webflow") {
+  } else if (userChoice === "webflow") {
     processedData = processWebflow(animationData);
   }
 
   copyToClipboard(processedData);
-}
-
-function getUserChoice() {
-  // Logic to get user choice (HTML or Webflow)
-  const webflowButton = document.querySelector('[data-copy-button="webflow"]');
-  const htmlButton = document.querySelector('[data-copy-button="html"]');
-
-  if (webflowButton && webflowButton.matches(":focus")) {
-    return "Webflow";
-  } else if (htmlButton && htmlButton.matches(":focus")) {
-    return "HTML";
-  } else {
-    return null;
-  }
 }
 
 function processHTML(data) {
