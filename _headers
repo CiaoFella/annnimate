@@ -1,0 +1,5 @@
+/*
+  Access-Control-Allow-Origin: https://annnimate.webflow.io https://www.annnimate.com
+  Access-Control-Allow-Methods: GET
+  Access-Control-Allow-Headers: Content-Type
+  Cache-Control: public, max-age=0, must-revalidate
