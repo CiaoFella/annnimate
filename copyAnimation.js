@@ -1,6 +1,6 @@
-async function copyAnimation(animationName) {
+async function copyAnimation(animationName, animationCategory) {
   const response = await fetch(
-    `https://your-netlify-url/${animationName}.html`
+    `https://your-netlify-url/animations/${animationCategory}/${animationName}.html`
   );
   const animationData = await response.text();
 
