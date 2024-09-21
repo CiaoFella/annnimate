@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
   console.log("hello");
   // Add event listeners to the buttons
   const buttons = document.querySelectorAll("[data-copy-button]");
