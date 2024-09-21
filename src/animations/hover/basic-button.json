@@ -3,13 +3,14 @@
   "payload": {
     "nodes": [
       {
-        "_id": "2113200b-3468-525f-9818-2281a1cec700",
+        "_id": "eea4f696-9ba3-2003-7a07-f4b68f982399",
         "type": "Block",
         "tag": "div",
         "classes": ["e486171f-b380-0a47-986c-44f534626e6e"],
         "children": [
-          "4de5b591-0101-cfc1-5643-4bce8e24f9c4",
-          "b1c65601-e640-3642-e854-9b21bd31b112"
+          "1801c097-8374-08b8-6d49-8c567c6e22dd",
+          "a440aeaf-7831-6767-2533-cc8f392e8ab4",
+          "9d1c6ec1-5f6d-3f7f-a46b-3efa64e392fa"
         ],
         "data": {
           "text": false,
@@ -27,7 +28,7 @@
         }
       },
       {
-        "_id": "4de5b591-0101-cfc1-5643-4bce8e24f9c4",
+        "_id": "1801c097-8374-08b8-6d49-8c567c6e22dd",
         "type": "Block",
         "tag": "div",
         "classes": [
@@ -35,7 +36,7 @@
           "76189bb8-cbae-5ae9-f1f0-5e83632dc3ba",
           "3c18e00e-f29d-9cf2-6d4b-565b3f552680"
         ],
-        "children": ["7978d768-e0c6-6ca5-8d6c-86aa81be727f"],
+        "children": ["575d0d76-d77d-6a16-23e8-4b9283fcfb85"],
         "data": {
           "text": false,
           "tag": "div",
@@ -48,11 +49,11 @@
         }
       },
       {
-        "_id": "7978d768-e0c6-6ca5-8d6c-86aa81be727f",
+        "_id": "575d0d76-d77d-6a16-23e8-4b9283fcfb85",
         "type": "Block",
         "tag": "div",
         "classes": ["29fa0f9c-43e5-adac-6c7c-3d067a9e4268"],
-        "children": ["a7b47434-812e-6e2f-078a-a6ddf617c129"],
+        "children": ["11f7c851-74fc-ee96-c2ae-ed513e69ebfe"],
         "data": {
           "text": true,
           "tag": "div",
@@ -65,12 +66,12 @@
         }
       },
       {
-        "_id": "a7b47434-812e-6e2f-078a-a6ddf617c129",
+        "_id": "11f7c851-74fc-ee96-c2ae-ed513e69ebfe",
         "text": true,
         "v": "Get Annnimate"
       },
       {
-        "_id": "b1c65601-e640-3642-e854-9b21bd31b112",
+        "_id": "a440aeaf-7831-6767-2533-cc8f392e8ab4",
         "type": "Block",
         "tag": "div",
         "classes": [
@@ -78,8 +79,8 @@
           "f6869ed4-0fe4-7956-e0d7-5473ca93803a"
         ],
         "children": [
-          "b67916bf-41bf-d1dc-b373-c4289c78d8fe",
-          "7e711a11-6402-d49d-b2dc-eb6b9cdfd3b1"
+          "b84a0afa-3719-2f60-b524-fd9f5df961f4",
+          "edb29ac8-9140-9a32-32c1-7b9261244b8a"
         ],
         "data": {
           "text": false,
@@ -93,14 +94,14 @@
         }
       },
       {
-        "_id": "b67916bf-41bf-d1dc-b373-c4289c78d8fe",
+        "_id": "b84a0afa-3719-2f60-b524-fd9f5df961f4",
         "type": "Link",
         "tag": "a",
         "classes": [
           "93913281-83d3-b13f-e975-3ef9b1e4c6d5",
           "4fddff40-9f89-47d8-d073-c3fa7fb4af5b"
         ],
-        "children": ["480fce58-7105-a2dc-6553-6f536fc558cc"],
+        "children": ["47b89acd-230f-76e6-d940-5b49f7885fa9"],
         "data": {
           "button": false,
           "block": "inline",
@@ -115,30 +116,30 @@
         }
       },
       {
-        "_id": "480fce58-7105-a2dc-6553-6f536fc558cc",
+        "_id": "47b89acd-230f-76e6-d940-5b49f7885fa9",
         "type": "DOM",
         "tag": "div",
         "classes": [
           "0812a5be-ea56-3eaa-84e8-ec5d292c44b6",
           "e3f9d02d-b7a7-6838-e949-9481486484a1"
         ],
-        "children": ["c02ca63b-717b-802a-4cc8-62e76c9490a6"],
+        "children": ["dae1ca85-38c9-8e5b-70c6-186c815de07d"],
         "data": { "tag": "span", "attributes": [] }
       },
       {
-        "_id": "c02ca63b-717b-802a-4cc8-62e76c9490a6",
+        "_id": "dae1ca85-38c9-8e5b-70c6-186c815de07d",
         "text": true,
         "v": "Get Annnimate"
       },
       {
-        "_id": "7e711a11-6402-d49d-b2dc-eb6b9cdfd3b1",
+        "_id": "edb29ac8-9140-9a32-32c1-7b9261244b8a",
         "type": "DOM",
         "tag": "div",
         "classes": [
           "103f7858-4229-432c-4642-b4de0617a51a",
           "49bd8976-e44d-449c-74e2-e9de81684c1b"
         ],
-        "children": ["e3eb6bd1-d928-b2df-490b-1fb9143c063b"],
+        "children": ["a182c47a-6b13-3805-d0d1-2df46dc58563"],
         "data": {
           "tag": "button",
           "attributes": [{ "name": "type", "value": "button" }],
@@ -146,20 +147,42 @@
         }
       },
       {
-        "_id": "e3eb6bd1-d928-b2df-490b-1fb9143c063b",
+        "_id": "a182c47a-6b13-3805-d0d1-2df46dc58563",
         "type": "DOM",
         "tag": "div",
         "classes": [
           "0812a5be-ea56-3eaa-84e8-ec5d292c44b6",
           "e3f9d02d-b7a7-6838-e949-9481486484a1"
         ],
-        "children": ["07c6c106-bc70-f27f-5a95-e20bf2829204"],
+        "children": ["c9232860-efcd-cf57-ec09-a6615bfc21a7"],
         "data": { "tag": "span", "attributes": [] }
       },
       {
-        "_id": "07c6c106-bc70-f27f-5a95-e20bf2829204",
+        "_id": "c9232860-efcd-cf57-ec09-a6615bfc21a7",
         "text": true,
         "v": "Get Annnimate"
+      },
+      {
+        "_id": "9d1c6ec1-5f6d-3f7f-a46b-3efa64e392fa",
+        "type": "HtmlEmbed",
+        "tag": "div",
+        "classes": ["10fdacaf-57cf-cd23-e31e-22af94c25d1a"],
+        "children": [],
+        "v": "<script>\n    gsap.to(\".animation-link\", { duration: 1, scale: 1.2, ease: \"power1.inOut\", repeat: -1, yoyo: true });\n</script>",
+        "data": {
+          "search": { "exclude": true },
+          "embed": {
+            "meta": {
+              "html": "<script>\n    gsap.to(\".animation-link\", { duration: 1, scale: 1.2, ease: \"power1.inOut\", repeat: -1, yoyo: true });\n</script>",
+              "div": false,
+              "script": true,
+              "compilable": false,
+              "iframe": false
+            },
+            "type": "html"
+          },
+          "insideRTE": false
+        }
       }
     ],
     "styles": [
@@ -290,6 +313,20 @@
         "variants": {},
         "children": ["e3f9d02d-b7a7-6838-e949-9481486484a1"],
         "createdBy": "5b94700c7794ec3bc175efda",
+        "origin": null,
+        "selector": null
+      },
+      {
+        "_id": "10fdacaf-57cf-cd23-e31e-22af94c25d1a",
+        "fake": false,
+        "type": "class",
+        "name": "animation_code",
+        "namespace": "",
+        "comb": "",
+        "styleLess": "display: none;",
+        "variants": {},
+        "children": [],
+        "createdBy": "623a1cfb1e3b389e6ea3409f",
         "origin": null,
         "selector": null
       },
