@@ -1,0 +1,22 @@
+{
+  "name": "animations-code",
+  "version": "1.0.0",
+  "description": "Code setup for Annnimate.com",
+  "main": "copyAnimation.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CiaoFella/annnimate.git"
+  },
+  "author": "Julian Fella",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CiaoFella/annnimate/issues"
+  },
+  "homepage": "annnimate.com",
+  "dependencies": {
+    "webpack": "^5.94.0"
+  }
+}

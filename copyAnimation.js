@@ -1,28 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Add buttons dynamically
-  const animationLink = document.querySelector(".animation-link");
-  if (animationLink) {
-    const htmlButton = document.createElement("button");
-    htmlButton.setAttribute("data-copy-button", "html");
-    htmlButton.textContent = "Copy as HTML";
-
-    const webflowButton = document.createElement("button");
-    webflowButton.setAttribute("data-copy-button", "webflow");
-    webflowButton.textContent = "Copy as Webflow";
-
-    animationLink.insertAdjacentElement("afterend", htmlButton);
-    animationLink.insertAdjacentElement("afterend", webflowButton);
-  }
-
   // Add event listeners to the buttons
   const buttons = document.querySelectorAll("[data-copy-button]");
   buttons.forEach((button) => {
     button.addEventListener("click", (event) => {
-      const animationItem = document.querySelector(".animation-link");
+      const animationItem = event.target.closest(
+        '[data-animation-list="item"]'
+      );
       if (animationItem) {
-        const animationName = "basic-button";
-        const animationCategory = "hover";
+        const animationName = animationItem.getAttribute("data-animation-name");
+        const animationCategory = animationItem.getAttribute(
+          "data-animation-category"
+        );
         const userChoice = event.target.getAttribute("data-copy-button");
+        console.log(animationName, animationCategory, event.target);
         copyAnimation(animationName, animationCategory, userChoice);
       }
     });
@@ -38,19 +28,12 @@ async function copyAnimation(animationName, animationCategory, userChoice) {
   let processedData;
 
   if (userChoice === "html") {
-    processedData = processHTML(animationData);
+    processedData = animationData; // Directly use the HTML content
   } else if (userChoice === "webflow") {
     processedData = processWebflow(animationData);
   }
 
   copyToClipboard(processedData);
-}
-
-function processHTML(data) {
-  // Extract content inside the body tag
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(data, "text/html");
-  return doc.body.innerHTML;
 }
 
 function processWebflow(data) {
