@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function copyAnimation(animationName, animationCategory, userChoice) {
   const response = await fetch(
-    `https://your-netlify-url/animations/${animationCategory}/${animationName}.html`
+    `https://annnimate.netlify.app/animations/${animationCategory}/${animationName}.html`
   );
   const animationData = await response.text();
 
