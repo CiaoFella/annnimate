@@ -36,41 +36,24 @@ async function copyAnimation(animationName, animationCategory, userChoice) {
     animationData = await response.text();
   }
 
-  copyToClipboard(animationData);
+  copyToClipboard(animationData, userChoice);
 }
 
-function processWebflow(data) {
-  // Convert the data into valid Webflow JSON
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(data, "text/html");
-
-  // Convert HTML elements to Webflow elements
-  // Store JS in an embed block
-  const webflowData = {
-    html: doc.body.innerHTML,
-    js: extractJS(doc),
-  };
-
-  return JSON.stringify(webflowData);
-}
-
-function extractJS(doc) {
-  // Extract JavaScript from the HTML document
-  const scripts = doc.querySelectorAll("script");
-  let jsCode = "";
-  scripts.forEach((script) => {
-    jsCode += script.innerHTML;
-  });
-  return jsCode;
-}
-
-function copyToClipboard(data) {
-  navigator.clipboard.writeText(data).then(
-    () => {
-      alert("Animation copied to clipboard!");
-    },
-    (err) => {
-      console.error("Could not copy text: ", err);
+function copyToClipboard(data, userChoice) {
+  document.addEventListener("copy", function onCopy(event) {
+    if (userChoice === "webflow") {
+      event.clipboardData.setData("application/json", data);
+    } else {
+      event.clipboardData.setData("text/plain", data);
     }
+    event.preventDefault();
+    document.removeEventListener("copy", onCopy);
+  });
+
+  document.execCommand("copy");
+  alert(
+    `Animation copied to clipboard as ${
+      userChoice === "webflow" ? "JSON" : "text"
+    }!`
   );
 }
