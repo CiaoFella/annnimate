@@ -21,20 +21,22 @@ window.addEventListener("load", () => {
 });
 
 async function copyAnimation(animationName, animationCategory, userChoice) {
-  const response = await fetch(
-    `https://annnimate.netlify.app/animations/${animationCategory}/${animationName}.html`
-  );
-  const animationData = await response.text();
+  let response, animationData;
 
-  let processedData;
-
-  if (userChoice === "html") {
-    processedData = animationData; // Directly use the HTML content
-  } else if (userChoice === "webflow") {
-    processedData = processWebflow(animationData);
+  if (userChoice === "webflow") {
+    response = await fetch(
+      `https://annnimate.netlify.app/animations/${animationCategory}/${animationName}.json`
+    );
+    animationData = await response.json();
+    animationData = JSON.stringify(animationData); // Convert JSON to string
+  } else {
+    response = await fetch(
+      `https://annnimate.netlify.app/animations/${animationCategory}/${animationName}.html`
+    );
+    animationData = await response.text();
   }
 
-  copyToClipboard(processedData);
+  copyToClipboard(animationData);
 }
 
 function processWebflow(data) {
