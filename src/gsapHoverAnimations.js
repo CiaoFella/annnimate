@@ -39,15 +39,15 @@ function basicButtonAnimation() {
 
 // Fill button animation
 function fillButtonAnimation() {
-  const buttons = document.querySelectorAll("[annnimate-fill-button=wrap]");
+  const buttons = document.querySelectorAll("[annnimate-curve-button=wrap]");
 
   buttons.forEach((button) => {
-    const bg = button.querySelector("[annnimate-fill-button=bg]");
-    const bgPath = bg.querySelector("[annnimate-fill-button=bg-path]");
-    const text = button.querySelector("[annnimate-fill-button=text]");
+    const bg = button.querySelector("[annnimate-curve-button=bg]");
+    const bgPath = bg.querySelector("[annnimate-curve-button=bg-path]");
+    const text = button.querySelector("[annnimate-curve-button=text]");
 
     // Start color of the text
-    const startColor = text.style.color;
+    const startColor = window.getComputedStyle(text).color;
 
     // EDIT: Adjust the end color as you like
     const endColor = "#FFF";
@@ -65,7 +65,7 @@ function fillButtonAnimation() {
       );
     }
 
-    function handleHoverIn(mouseDirection, allDirections) {
+    function handleHoverIn(mouseDirection) {
       const paths = {
         top: { start: svgStartFromTop, end: svgEndFromTop },
         bottom: { start: svgStartFromBottom, end: svgEndFromBottom },
@@ -75,7 +75,7 @@ function fillButtonAnimation() {
       return paths[mouseDirection] || paths.top;
     }
 
-    function handleHoverOut(mouseDirection, allDirections) {
+    function handleHoverOut(mouseDirection) {
       const paths = {
         top: { start: svgStartToTop, end: svgEndToTop },
         bottom: { start: svgStartToBottom, end: svgEndToBottom },
@@ -391,9 +391,187 @@ function listHoverAnimation() {
   let svgEndToRight = "M 100 0 H 100 Q 100 50 100 100 H 100 V 0 z";
 }
 
-// Glitch Text on hover
+// Circle fill animation like here: https://www.prets.io/
+function circleFillAnimation() {
+  const buttons = document.querySelectorAll("[annnimate-circle-button=wrap]");
+
+  if (buttons && buttons.length > 0) {
+    buttons.forEach((button) => {
+      const circle = button.querySelector("[annnimate-circle-button=circle]");
+      const text = button.querySelector("[annnimate-circle-button=text]");
+      const targetColor = button.getAttribute("annnimate-theme");
+      const startColor = window.getComputedStyle(button).color;
+      const scale = button.getAttribute("annnimate-scale");
+
+      let scaleValue = 20;
+
+      if (scale) {
+        scaleValue = scale;
+      }
+
+      button.addEventListener("mouseenter", (event) => {
+        const tl = gsap.timeline({
+          defaults: { ease: "power4.out", duration: 1 },
+        });
+
+        setCirclePosition(event, button, circle, tl);
+
+        tl.to(circle, {
+          scale: scaleValue,
+          transformOrigin: "center",
+        });
+
+        if (targetColor) {
+          tl.to(text, { color: targetColor, duration: 0.5 }, "<");
+        }
+      });
+
+      button.addEventListener("mouseleave", (event) => {
+        const tl = gsap.timeline({
+          defaults: { ease: "power4.out", duration: 1 },
+        });
+
+        setCirclePosition(event, button, circle, tl);
+
+        tl.to(circle, {
+          scale: 0,
+          transformOrigin: "center",
+        });
+
+        if (targetColor) {
+          tl.to(text, { color: startColor, duration: 0.5 }, "<");
+        }
+      });
+    });
+  }
+
+  function setCirclePosition(event, button, circle, tl) {
+    const rect = button.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+
+    tl.set(circle, {
+      x,
+      y,
+    });
+  }
+}
+
+// Rectangle fill animation like here: https://betteroff.studio/pricing
+function rectangleFillAnimation() {
+  const buttons = document.querySelectorAll(
+    "[annnimate-rectangle-button=wrap]"
+  );
+
+  buttons.forEach((button) => {
+    const rect = button.querySelector("[annnimate-rectangle-button=rect]");
+    const text = button.querySelector("[annnimate-rectangle-button=text]");
+    const targetColor = button.getAttribute("annnimate-theme");
+
+    const tl = gsap.timeline({
+      defaults: { ease: "power4.inOut", duration: 0.75 },
+      paused: true,
+    });
+
+    tl.fromTo(
+      rect,
+      { scale: 0.8, yPercent: 0 },
+      { scale: 1, yPercent: -100 }
+    ).to(
+      text,
+      { color: targetColor, duration: 0.25, ease: "power1.inOut" },
+      "<+25%"
+    );
+
+    button.addEventListener("mouseenter", () => {
+      tl.play();
+    });
+
+    button.addEventListener("mouseleave", () => {
+      tl.reverse();
+    });
+  });
+}
 
 // Variable Font hover
+function variableFontHover() {
+  let mm = gsap.matchMedia();
+
+  // Add a media query that targets screens with a minimum width of 992px
+  mm.add("(min-width: 992px)", () => {
+    const fontWeightItems = document.querySelectorAll(
+      "[annnimate-variable-font=element]"
+    );
+
+    let MAX_DISTANCE = 200; // Adjust the maximum distance for font weight change as needed
+    let MAX_FONT_WEIGHT = 800; // Maximum font weight
+    let MIN_FONT_WEIGHT = 100; // Minimum font weight
+
+    // Split up any text with the data attribute into individual characters
+    fontWeightItems.forEach((item) => {
+      new SplitType(item, { types: "chars" }).chars;
+
+      const maxDistance = item.getAttribute("annnimate-max-distance");
+      const maxFontWeight = item.getAttribute("annnimate-max-weight");
+      const minFontWeight = item.getAttribute("annnimate-min-weight");
+
+      if (maxDistance) {
+        MAX_DISTANCE = parseInt(maxDistance);
+      }
+
+      if (maxFontWeight) {
+        MAX_FONT_WEIGHT = parseInt(maxFontWeight);
+      }
+
+      if (minFontWeight) {
+        MIN_FONT_WEIGHT = parseInt(minFontWeight);
+      }
+    });
+
+    // Add mousemove event listener to change font weight based on mouse position
+    document.addEventListener("mousemove", (event) => {
+      // Get the mouse position
+      const mouseX = event.pageX;
+      const mouseY = event.pageY;
+
+      fontWeightItems.forEach((item) => {
+        item.querySelectorAll(".char").forEach((char) => {
+          // Get the center of each character and calculate the distance from the mouse
+          const itemRect = char.getBoundingClientRect();
+          const itemCenterX =
+            itemRect.left + itemRect.width / 2 + window.scrollX;
+          const itemCenterY =
+            itemRect.top + itemRect.height / 2 + window.scrollY;
+
+          const distance = Math.sqrt(
+            Math.pow(mouseX - itemCenterX, 2) +
+              Math.pow(mouseY - itemCenterY, 2)
+          );
+
+          // map the distance to the font weight range
+          let fontWeight =
+            distance < MAX_DISTANCE
+              ? gsap.utils.mapRange(
+                  0,
+                  MAX_DISTANCE,
+                  MIN_FONT_WEIGHT,
+                  MAX_FONT_WEIGHT,
+                  Math.max(0, MAX_DISTANCE - distance)
+                )
+              : MIN_FONT_WEIGHT;
+
+          gsap.to(char, { fontWeight, duration: 0.5 });
+        });
+      });
+    });
+  });
+}
+
+// Icon Hover Animation
+
+// Tool Tip on hover with animation
+
+// Magnetic Button
 
 // Video on hover
 
@@ -401,9 +579,9 @@ function listHoverAnimation() {
 
 // Image zoom on hover
 
-// Tool Tip on hover with animation
-
 // Card Flip on hover
+
+// Glitch Text on hover
 
 basicButtonAnimation();
 fillButtonAnimation();
@@ -411,3 +589,6 @@ buttonPushAnimation();
 buttonStaggerAnimation();
 buttonIconAnimation();
 listHoverAnimation();
+circleFillAnimation();
+rectangleFillAnimation();
+variableFontHover();
