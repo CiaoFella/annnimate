@@ -1,0 +1,94 @@
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+<!-- Text Button HTML -->
+<div class="animations_collection_item">
+  <a class="anm_text_btn_wrap" href="#" anm-text-button="wrap">
+    <div class="anm_text_btn_text" anm-text-button="text">Text Button</div>
+    <div class="anm_text_btn_underline" anm-text-button="underline"></div>
+  </a>
+</div>
+
+<!-- Text Button Styles -->
+<style>
+  :root {
+    --grid-gap-small: 0.25rem;
+    --grid-gap-large: 3rem;
+    --transparent-bg: rgba(255, 255, 255, 0);
+    --underline-color: #091004;
+    --button-text-color: #091004;
+  }
+
+  .animations_collection_item {
+    display: flex;
+    margin-top: var(--grid-gap-large);
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    grid-column-gap: var(--grid-gap-large);
+    grid-row-gap: var(--grid-gap-large);
+  }
+
+  .anm_text_btn_wrap {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    grid-column-gap: var(--grid-gap-small);
+    grid-row-gap: var(--grid-gap-small);
+    background-color: var(--transparent-bg);
+    color: var(--button-text-color);
+    text-decoration: none;
+  }
+
+  .anm_text_btn_text {
+    /* Add text-specific styles if needed */
+  }
+
+  .anm_text_btn_underline {
+    width: 100%;
+    height: 1px;
+    background-color: var(--underline-color);
+  }
+</style>
+
+<script>
+  function textButtonAnimation() {
+    const buttons = document.querySelectorAll('[anm-text-button=wrap]')
+
+    if (buttons && buttons.length > 0) {
+      buttons.forEach(button => {
+        const underline = button.querySelector('[anm-text-button=underline]')
+
+        gsap.set(underline, { scaleX: 0 })
+
+        button.addEventListener('mouseenter', () => {
+          gsap.fromTo(
+            underline,
+            { scaleX: 0 },
+            {
+              scaleX: 1,
+              transformOrigin: 'left',
+              duration: 0.3,
+              ease: 'power1.inOut',
+            }
+          )
+        })
+
+        button.addEventListener('mouseleave', () => {
+          gsap.fromTo(
+            underline,
+            { scaleX: 1 },
+            {
+              scaleX: 0,
+              transformOrigin: 'right',
+              duration: 0.3,
+              ease: 'power1.inOut',
+            }
+          )
+        })
+      })
+    }
+  }
+
+  textButtonAnimation()
+</script>

@@ -1,0 +1,56 @@
+{
+  "type": "@webflow/XscpData",
+  "payload": {
+    "nodes": [
+      {
+        "_id": "9e95bd9a-188d-7400-7f5e-d85976d1cc31",
+        "type": "Heading",
+        "tag": "h1",
+        "classes": ["62bc8428-a24d-a619-d07e-a073fd25b9d6"],
+        "children": ["4d841c52-3960-51a0-02bb-680f8f0fa1ba"],
+        "data": {
+          "tag": "h1",
+          "devlink": { "runtimeProps": {}, "slot": "" },
+          "displayName": "",
+          "attr": { "id": "" },
+          "xattr": [
+            { "name": "anm-variable-font", "value": "element" },
+            { "name": "anm-max-distance", "value": "200" },
+            { "name": "anm-max-weight", "value": "800" },
+            { "name": "anm-min-weight", "value": "100" }
+          ],
+          "search": { "exclude": false },
+          "visibility": { "conditions": [] }
+        }
+      },
+      { "_id": "4d841c52-3960-51a0-02bb-680f8f0fa1ba", "text": true, "v": "Hover me" }
+    ],
+    "styles": [
+      {
+        "_id": "62bc8428-a24d-a619-d07e-a073fd25b9d6",
+        "fake": false,
+        "type": "class",
+        "name": "u-text-display",
+        "namespace": "",
+        "comb": "",
+        "styleLess": "font-family: Plus jakarta sans Variable; font-size: 7rem; line-height: 1em; letter-spacing: -0.03em; font-weight: @raw<|var(--display--font-weight)|>; text-transform: @raw<|var(--display--text-transform)|>;",
+        "variants": {},
+        "children": ["d6a1806d-549f-3b27-ff8a-141cfaf71aff"],
+        "createdBy": "5b94700c7794ec3bc175efda",
+        "origin": null,
+        "selector": null
+      }
+    ],
+    "assets": [],
+    "ix1": [],
+    "ix2": { "interactions": [], "events": [], "actionLists": [] }
+  },
+  "meta": {
+    "droppedLinks": 0,
+    "dynBindRemovedCount": 0,
+    "dynListBindRemovedCount": 0,
+    "paginationRemovedCount": 0,
+    "universalBindingsRemovedCount": 0,
+    "unlinkedSymbolCount": 0
+  }
+}

@@ -1,0 +1,123 @@
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+<!-- Circle Button HTML -->
+<!-- EDIT: anm-color="#fff", anm-scale="25" -->
+<a class="anm_circle_btn_wrap is-outline" href="#" anm-circle-button="wrap" anm-color="#fff" anm-scale="25">
+  <div class="anm_circle_btn_text" anm-circle-button="text">Circle Button</div>
+  <div class="anm_circle_btn_circle is-dark" anm-circle-button="circle"></div>
+</a>
+
+<!-- Circle Button Styles -->
+<style>
+  :root {
+    --circle-btn-padding: 0.75rem 2rem;
+    --circle-btn-radius: 50rem;
+    --circle-btn-bg-color: #c2ff5d;
+    --outline-border-color: #051602;
+    --dark-bg-color: #051602; /* Converted to hex */
+  }
+
+  .anm_circle_btn_wrap {
+    position: relative;
+    display: inline-flex;
+    overflow: hidden;
+    padding: var(--circle-btn-padding);
+    border-radius: var(--circle-btn-radius);
+    background-color: var(--circle-btn-bg-color);
+    color: var(--outline-border-color);
+    text-decoration: none;
+  }
+
+  .is-outline {
+    border: 1px solid var(--outline-border-color);
+    background-color: transparent;
+  }
+
+  .anm_circle_btn_text {
+    position: relative;
+    z-index: 1;
+  }
+
+  .anm_circle_btn_circle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    width: 1rem;
+    height: 1rem;
+    border-radius: var(--circle-btn-radius);
+    background-color: var(--dark-bg-color);
+    transform: translate(-50%, -50%) scale(0);
+  }
+</style>
+
+<script>
+  function circleFillAnimation() {
+    const buttons = document.querySelectorAll('[anm-circle-button=wrap]')
+
+    if (buttons && buttons.length > 0) {
+      buttons.forEach(button => {
+        const circle = button.querySelector('[anm-circle-button=circle]')
+        const text = button.querySelector('[anm-circle-button=text]')
+        const targetColor = button.getAttribute('anm-color') || window.getComputedStyle(button).color
+        const startColor = window.getComputedStyle(button).color
+        const scale = button.getAttribute('anm-scale')
+
+        let scaleValue = 20
+
+        if (scale) {
+          scaleValue = scale
+        }
+
+        button.addEventListener('mouseenter', event => {
+          const tl = gsap.timeline({
+            defaults: { ease: 'power4.out', duration: 1 },
+          })
+
+          setCirclePosition(event, button, circle, tl)
+
+          tl.to(circle, {
+            scale: scaleValue,
+            transformOrigin: 'center',
+          })
+
+          if (targetColor) {
+            tl.to(text, { color: targetColor, duration: 0.5 }, '<')
+          }
+        })
+
+        button.addEventListener('mouseleave', event => {
+          const tl = gsap.timeline({
+            defaults: { ease: 'power4.out', duration: 1 },
+          })
+
+          setCirclePosition(event, button, circle, tl)
+
+          tl.to(circle, {
+            scale: 0,
+            transformOrigin: 'center',
+          })
+
+          if (targetColor) {
+            tl.to(text, { color: startColor, duration: 0.5 }, '<')
+          }
+        })
+      })
+    }
+
+    function setCirclePosition(event, button, circle, tl) {
+      const rect = button.getBoundingClientRect()
+      const x = event.clientX - rect.left
+      const y = event.clientY - rect.top
+
+      tl.set(circle, {
+        x,
+        y,
+      })
+    }
+  }
+
+  circleFillAnimation()
+</script>

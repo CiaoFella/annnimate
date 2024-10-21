@@ -1,0 +1,101 @@
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+<!-- Rectangle Button HTML -->
+<!-- anm-color="black" -->
+<a class="anm_rectangle_btn_wrap is-outline" href="#" anm-rectangle-button="wrap" anm-color="black">
+  <div class="anm_rectangle_btn_text" anm-rectangle-button="text">Rectangle Button</div>
+  <div class="anm_rectangle_btn_rect" anm-rectangle-button="rect"></div>
+</a>
+
+<!-- Rectangle Button Styles -->
+<style>
+  :root {
+    --button-padding: 1.5rem 4rem;
+    --border-radius: 0.5rem;
+    --hover-border-color: #c2ff5d;
+    --button-background-color: rgba(216, 216, 216, 1);
+    --outline-border-color: black;
+    --outline-bg-color: rgba(255, 255, 255, 0);
+    --outline-hover-border-color: #c2ff5d;
+    --accent-bg-color: #c2ff5d;
+    --font-color: #051602;
+  }
+
+  .anm_rectangle_btn_wrap {
+    position: relative;
+    overflow: hidden;
+    padding: var(--button-padding);
+    border-radius: var(--border-radius);
+    background-color: var(--button-background-color);
+  }
+
+  .is-outline {
+    display: inline-flex;
+    border: 1px solid var(--outline-border-color);
+    background-color: var(--outline-bg-color);
+    transition: border-color 300ms ease-in-out;
+    color: var(--font-color);
+    text-decoration: none;
+  }
+
+  .is-outline:hover {
+    border-color: var(--outline-hover-border-color);
+  }
+
+  .anm_rectangle_btn_text {
+    position: relative;
+    z-index: 1;
+  }
+
+  .anm_rectangle_btn_rect {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    right: 0;
+    bottom: auto;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border-radius);
+    background-color: var(--accent-bg-color);
+  }
+
+  .is-accent {
+    background-color: var(--accent-bg-color);
+  }
+</style>
+
+<script>
+  function rectangleFillAnimation() {
+    const buttons = document.querySelectorAll('[anm-rectangle-button=wrap]')
+
+    if (buttons && buttons.length > 0) {
+      buttons.forEach(button => {
+        const rect = button.querySelector('[anm-rectangle-button=rect]')
+        const text = button.querySelector('[anm-rectangle-button=text]')
+        const targetColor = button.getAttribute('anm-color') || window.getComputedStyle(button).color
+
+        const tl = gsap.timeline({
+          defaults: { ease: 'power4.inOut', duration: 0.75 },
+          paused: true,
+        })
+
+        tl.fromTo(rect, { scale: 0.8, yPercent: 0 }, { scale: 1, yPercent: -100 }).to(
+          text,
+          { color: targetColor, duration: 0.25, ease: 'power1.inOut' },
+          '<+25%'
+        )
+
+        button.addEventListener('mouseenter', () => {
+          tl.play()
+        })
+
+        button.addEventListener('mouseleave', () => {
+          tl.reverse()
+        })
+      })
+    }
+  }
+
+  rectangleFillAnimation()
+</script>

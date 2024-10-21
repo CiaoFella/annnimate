@@ -1,0 +1,131 @@
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+<!-- Animations Collection Inner Wrap HTML -->
+<div class="animations_collection_inner_wrap">
+  <div class="animations_collection_inner_label_wrap">
+    <div class="animations_collection_inner_label">Direction: up</div>
+  </div>
+  <!-- Push Button HTML -->
+  <!-- EDIT: anm-direction -->
+  <a class="anm_push_btn_wrap" href="#" anm-push-button="wrap" anm-direction="up">
+    <div class="anm_push_btn_text_wrap">
+      <div class="anm_push_btn_text" anm-push-button="text">Push Button</div>
+    </div>
+  </a>
+</div>
+
+<!-- Animations Collection Inner Wrap Styles -->
+<style>
+  :root {
+    --label-bg-color: #c2ff5d;
+    --border-color: #2c3033;
+    --hover-color: #c2ff5d;
+    --button-padding: 1rem 2rem;
+    --border-radius-large: 10rem;
+    --border-radius-small: 0.5rem;
+    --transition-duration: 300ms;
+    --font-color: #061c02;
+    --gap-small: 0.5rem;
+    --gap-large: 1rem;
+  }
+
+  .animations_collection_inner_wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    grid-column-gap: var(--gap-large);
+    grid-row-gap: var(--gap-large);
+  }
+
+  .animations_collection_inner_label_wrap {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    grid-column-gap: var(--gap-small);
+    grid-row-gap: var(--gap-small);
+  }
+
+  .animations_collection_inner_label {
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-small);
+    background-color: var(--label-bg-color);
+  }
+
+  .anm_push_btn_wrap {
+    position: relative;
+    padding: var(--button-padding);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-large);
+    transition: border-color var(--transition-duration) ease-out, background-color var(--transition-duration) ease-out;
+    color: var(--font-color);
+    text-decoration: none;
+  }
+
+  .anm_push_btn_wrap:hover {
+    border-color: var(--hover-color);
+    background-color: var(--hover-color);
+  }
+
+  .anm_push_btn_text_wrap {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .anm_push_btn_text {
+    line-height: 1em;
+    white-space: nowrap;
+  }
+</style>
+
+<script>
+  function buttonPushAnimation() {
+    const buttons = document.querySelectorAll('[anm-push-button=wrap]')
+
+    if (buttons && buttons.length > 0) {
+      buttons.forEach(button => {
+        // Get the direction of the push animation - can be "up", "down", "left", "right"
+        const direction = button.getAttribute('anm-direction')
+        const text = button.querySelector('[anm-push-button=text]')
+
+        // create a copy of the text and add a class to it
+        const textClone = text.cloneNode(true)
+        textClone.style.position = 'absolute'
+
+        text.after(textClone)
+
+        const timeline = gsap.timeline({
+          defaults: { ease: 'power3.inOut', duration: 0.5 },
+          paused: true,
+        })
+
+        if (direction === 'up') {
+          textClone.style.bottom = '-105%'
+          timeline.to(text, { yPercent: -105 }).to(textClone, { yPercent: -105 }, '<')
+        } else if (direction === 'down') {
+          textClone.style.top = '-105%'
+          timeline.to(text, { yPercent: 105 }).to(textClone, { yPercent: 105 }, '<')
+        } else if (direction === 'left') {
+          textClone.style.top = '0'
+          textClone.style.right = '105%'
+          timeline.to(text, { xPercent: 105 }).to(textClone, { xPercent: 105 }, '<')
+        } else if (direction === 'right') {
+          textClone.style.top = '0'
+          textClone.style.left = '105%'
+          timeline.to(text, { xPercent: -105 }).to(textClone, { xPercent: -105 }, '<')
+        }
+
+        button.addEventListener('mouseenter', () => {
+          timeline.play()
+        })
+
+        button.addEventListener('mouseleave', () => {
+          timeline.reverse()
+        })
+      })
+    }
+  }
+
+  buttonPushAnimation()
+</script>

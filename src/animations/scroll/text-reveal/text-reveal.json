@@ -1,0 +1,230 @@
+{
+  "type": "@webflow/XscpData",
+  "payload": {
+    "nodes": [
+      {
+        "_id": "811ea326-0e7a-aeaa-01c5-164e5f1ded39",
+        "type": "Block",
+        "tag": "div",
+        "classes": ["9e86eac7-be88-8abb-7eb4-a08fceb1b6f5", "4829290e-c252-11f7-9f0a-95707c36eccb", "21af119e-ad98-cfda-6363-971b2a5b574f"],
+        "children": ["fa57f4b4-431d-381e-71db-f6b09ade8acd"],
+        "data": {
+          "text": false,
+          "tag": "div",
+          "devlink": { "runtimeProps": {}, "slot": "" },
+          "displayName": "",
+          "attr": { "id": "" },
+          "xattr": [
+            { "name": "anm-scroll-text", "value": "section" },
+            { "name": "anm-scroll-start", "value": "top center" }
+          ],
+          "search": { "exclude": false },
+          "visibility": { "conditions": [] }
+        }
+      },
+      {
+        "_id": "fa57f4b4-431d-381e-71db-f6b09ade8acd",
+        "type": "Block",
+        "tag": "div",
+        "classes": ["f83a2332-5a25-bbad-0ba3-ad0b9bc3159a"],
+        "children": ["5e438b7f-1eb0-fbbd-c639-a45ce9303e76", "8556e086-8136-45d6-9926-0aef7b3f695e"],
+        "data": {
+          "text": false,
+          "tag": "div",
+          "devlink": { "runtimeProps": {}, "slot": "" },
+          "displayName": "",
+          "attr": { "id": "" },
+          "xattr": [],
+          "search": { "exclude": false },
+          "visibility": { "conditions": [] }
+        }
+      },
+      {
+        "_id": "5e438b7f-1eb0-fbbd-c639-a45ce9303e76",
+        "type": "Block",
+        "tag": "div",
+        "classes": ["8b8866c2-f86d-f664-bc85-0c0820f63d25"],
+        "children": ["18dc3253-e04c-b022-8384-57d5960ae1fa"],
+        "data": {
+          "text": false,
+          "tag": "div",
+          "devlink": { "runtimeProps": {}, "slot": "" },
+          "displayName": "",
+          "attr": { "id": "" },
+          "xattr": [],
+          "search": { "exclude": false },
+          "visibility": { "conditions": [] }
+        }
+      },
+      {
+        "_id": "18dc3253-e04c-b022-8384-57d5960ae1fa",
+        "type": "Heading",
+        "tag": "h1",
+        "classes": ["c85b60eb-0fa1-6746-b4db-6e451b7fdb9e"],
+        "children": ["210aa577-bf4b-e593-b6cb-45655df079bc"],
+        "data": {
+          "tag": "h1",
+          "devlink": { "runtimeProps": {}, "slot": "" },
+          "displayName": "",
+          "attr": { "id": "" },
+          "xattr": [
+            { "name": "anm-scroll-text", "value": "headline" },
+            { "name": "anm-split", "value": "chars" },
+            { "name": "anm-chars-stagger", "value": "0.025" },
+            { "name": "anm-delay", "value": "0.1" }
+          ],
+          "search": { "exclude": false },
+          "visibility": { "conditions": [] }
+        }
+      },
+      { "_id": "210aa577-bf4b-e593-b6cb-45655df079bc", "text": true, "v": "Stagger Headline" },
+      {
+        "_id": "8556e086-8136-45d6-9926-0aef7b3f695e",
+        "type": "Paragraph",
+        "tag": "p",
+        "classes": ["dcfe96f4-856b-dbdd-ee66-053bcc7c5c48"],
+        "children": ["e5b20c97-8470-f077-88b6-562a81b3b09f"],
+        "data": {
+          "devlink": { "runtimeProps": {}, "slot": "" },
+          "displayName": "",
+          "attr": { "id": "" },
+          "xattr": [
+            { "name": "anm-scroll-text", "value": "text" },
+            { "name": "anm-split", "value": "lines" },
+            { "name": "anm-delay", "value": "0.5" },
+            { "name": "anm-lines-stagger", "value": "0.1" }
+          ],
+          "search": { "exclude": false },
+          "visibility": { "conditions": [] }
+        }
+      },
+      {
+        "_id": "e5b20c97-8470-f077-88b6-562a81b3b09f",
+        "text": true,
+        "v": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere."
+      }
+    ],
+    "styles": [
+      {
+        "_id": "9e86eac7-be88-8abb-7eb4-a08fceb1b6f5",
+        "fake": false,
+        "type": "class",
+        "name": "anm_scroll_section",
+        "namespace": "",
+        "comb": "",
+        "styleLess": "display: flex; height: 100vh; padding-top: 5rem; padding-right: 5rem; padding-bottom: 5rem; padding-left: 5rem; flex-direction: column; flex-wrap: nowrap; grid-column-gap: 1rem; grid-row-gap: 1rem; background-color: #f6f7f9;",
+        "variants": {},
+        "children": [
+          "4829290e-c252-11f7-9f0a-95707c36eccb",
+          "6c31a7ba-0048-c2cb-e576-ef8310619717",
+          "ddee8844-62e4-e28e-2431-055267144c22",
+          "0e9dcf34-0caf-f74d-7db2-c6e8ad03f789",
+          "dde3a7bf-ea95-3990-5233-5d58d334511c"
+        ],
+        "createdBy": "623a1cfb1e3b389e6ea3409f",
+        "origin": null,
+        "selector": null
+      },
+      {
+        "_id": "4829290e-c252-11f7-9f0a-95707c36eccb",
+        "fake": false,
+        "type": "class",
+        "name": "is-content",
+        "namespace": "",
+        "comb": "&",
+        "styleLess": "grid-column-gap: 2rem; grid-row-gap: 2rem; background-color: hsla(216.00000000000014, 14.61%, 92.19%, 1.00);",
+        "variants": {},
+        "children": [
+          "bd4bd757-0d75-979b-18be-626f59ea0a0e",
+          "21af119e-ad98-cfda-6363-971b2a5b574f",
+          "0b56e4d1-cf4d-0bdb-bc61-e84e4aaf24a6",
+          "b489994f-ea77-c8f4-ca28-fbfc3570f5bd"
+        ],
+        "createdBy": "623a1cfb1e3b389e6ea3409f",
+        "origin": null,
+        "selector": null
+      },
+      {
+        "_id": "21af119e-ad98-cfda-6363-971b2a5b574f",
+        "fake": false,
+        "type": "class",
+        "name": "is-text",
+        "namespace": "",
+        "comb": "&",
+        "styleLess": "justify-content: flex-start; align-items: center;",
+        "variants": {},
+        "children": [],
+        "createdBy": "623a1cfb1e3b389e6ea3409f",
+        "origin": null,
+        "selector": null
+      },
+      {
+        "_id": "f83a2332-5a25-bbad-0ba3-ad0b9bc3159a",
+        "fake": false,
+        "type": "class",
+        "name": "anm_scroll_text_wrap",
+        "namespace": "",
+        "comb": "",
+        "styleLess": "width: 40rem;",
+        "variants": {},
+        "children": ["45b3a749-2c63-53b3-4994-affca9ff0477"],
+        "createdBy": "623a1cfb1e3b389e6ea3409f",
+        "origin": null,
+        "selector": null
+      },
+      {
+        "_id": "8b8866c2-f86d-f664-bc85-0c0820f63d25",
+        "fake": false,
+        "type": "class",
+        "name": "anm_scroll_headline_wrap",
+        "namespace": "",
+        "comb": "",
+        "styleLess": "overflow: hidden;",
+        "variants": {},
+        "children": ["e94c26d3-f475-d83f-fb2c-f7c8c1287bd7", "ea1dc74f-4e68-81c4-f733-1740b1835a7e"],
+        "createdBy": "623a1cfb1e3b389e6ea3409f",
+        "origin": null,
+        "selector": null
+      },
+      {
+        "_id": "c85b60eb-0fa1-6746-b4db-6e451b7fdb9e",
+        "fake": false,
+        "type": "class",
+        "name": "anm_scroll_headline",
+        "namespace": "",
+        "comb": "",
+        "styleLess": "font-size: 5rem; line-height: 1.3; font-weight: 500;",
+        "variants": {},
+        "children": ["618af5e6-3df5-f1a1-e93e-760b78bf9f08", "fff5170d-235d-0f9b-e6cc-af23990fda26"],
+        "createdBy": "623a1cfb1e3b389e6ea3409f",
+        "origin": null,
+        "selector": null
+      },
+      {
+        "_id": "dcfe96f4-856b-dbdd-ee66-053bcc7c5c48",
+        "fake": false,
+        "type": "class",
+        "name": "anm_scroll_text",
+        "namespace": "",
+        "comb": "",
+        "styleLess": "",
+        "variants": {},
+        "children": [],
+        "createdBy": "623a1cfb1e3b389e6ea3409f",
+        "origin": null,
+        "selector": null
+      }
+    ],
+    "assets": [],
+    "ix1": [],
+    "ix2": { "interactions": [], "events": [], "actionLists": [] }
+  },
+  "meta": {
+    "droppedLinks": 0,
+    "dynBindRemovedCount": 0,
+    "dynListBindRemovedCount": 0,
+    "paginationRemovedCount": 0,
+    "universalBindingsRemovedCount": 0,
+    "unlinkedSymbolCount": 0
+  }
+}

@@ -1,0 +1,92 @@
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
+
+<!-- Stagger Button HTML -->
+<!-- EDIT: anm-direction, anm-reverse -->
+<a class="anm_stagger_btn_wrap" href="#" anm-stagger-button="wrap" anm-direction="up" anm-reverse="false">
+  <div class="anm_stagger_btn_text_wrap">
+    <div class="anm_stagger_btn_text" anm-stagger-button="text">Stagger Button</div>
+  </div>
+</a>
+
+<!-- Stagger Button Styles -->
+<style>
+  :root {
+    --border-color: #000000;
+    --hover-color: #c2ff5d;
+    --button-padding: 1rem 2rem;
+    --border-radius: 10rem;
+    --transition-duration: 300ms;
+    --font-color: #151f02;
+  }
+
+  .anm_stagger_btn_wrap {
+    display: inline-flex;
+    padding: var(--button-padding);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    transition: border-color var(--transition-duration) ease-out, background-color var(--transition-duration) ease-out;
+    color: var(--font-color);
+    text-decoration: none;
+  }
+
+  .anm_stagger_btn_wrap:hover {
+    border-color: var(--hover-color);
+    background-color: var(--hover-color);
+  }
+
+  .anm_stagger_btn_text_wrap {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .anm_stagger_btn_text {
+    line-height: 1.5em;
+  }
+</style>
+
+<script>
+  function buttonStaggerAnimation() {
+    const buttons = document.querySelectorAll('[anm-stagger-button=wrap]')
+
+    buttons.forEach(button => {
+      const direction = button.getAttribute('anm-direction')
+      const isReverse = button.getAttribute('anm-reverse')
+      const text = button.querySelector('[anm-stagger-button=text]')
+
+      const textClone = text.cloneNode(true)
+      textClone.style.position = 'absolute'
+      text.after(textClone)
+
+      const textSplit = new SplitType(text, { types: 'chars' })
+      const clonedSplit = new SplitType(textClone, { types: 'chars' })
+
+      const timeline = gsap.timeline({
+        defaults: { ease: 'power3.inOut', duration: 0.5, stagger: 0.0075 },
+        paused: true,
+      })
+
+      if (direction === 'up') {
+        textClone.style.top = '100%'
+        timeline.fromTo(textSplit.chars, { yPercent: 0 }, { yPercent: -100 }).to(clonedSplit.chars, { yPercent: -100 }, '<')
+      } else if (direction === 'down') {
+        textClone.style.top = '-100%'
+        timeline.fromTo(textSplit.chars, { yPercent: 0 }, { yPercent: 100 }).fromTo(clonedSplit.chars, { yPercent: 0 }, { yPercent: 100 }, '<')
+      }
+
+      button.addEventListener('mouseenter', () => {
+        timeline.restart()
+      })
+
+      button.addEventListener('mouseleave', () => {
+        if (isReverse === 'true') {
+          timeline.reverse()
+        } else {
+          return
+        }
+      })
+    })
+  }
+
+  buttonStaggerAnimation()
+</script>

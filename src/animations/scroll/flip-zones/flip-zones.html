@@ -1,0 +1,220 @@
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Flip.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<!-- Flip Scroll Section HTML -->
+<!-- EDIT: anm-scroller="scroller", anm-flip-scroll="section" -->
+<!-- Flip Scroll Section HTML -->
+<!-- EDIT: anm-scroller="scroller", anm-flip-scroll="section" -->
+<div class="anm_scroll_content" anm-scroller="scroller" anm-flip-scroll="section">
+  <div class="anm_scroll_section is-content">
+    <h2 class="u-text-h2">Flip Scroll</h2>
+    <div class="animations_collection_inner_label_wrap">
+      <div>Section:</div>
+      <div class="animations_collection_inner_label_wrap is-content">Zones: 5 (including starting zone)</div>
+    </div>
+  </div>
+
+  <div class="anm_scroll_section is-content" anm-scroller="scroller" anm-flip-scroll="section">
+    <div class="anm_flip_scroll_container is-center">
+      <div class="anm_flip_scroll_zone" anm-flip-scroll="zone">
+        <div class="anm_flip_scroll_zone is-3"></div>
+      </div>
+    </div>
+    <div class="is-scroll-teaser is-center">
+      <h2 class="u-text-h1 u-text-align-center">
+        Scroll to experience real
+        <span class="is-text-highlight">Flip Scroll</span> magic
+      </h2>
+    </div>
+
+    <div class="anm_flip_scroll_container is-center">
+      <div class="anm_flip_scroll_zone" anm-flip-scroll="zone"></div>
+      <h2 class="anm_scroll_headline">Beautiful Animations</h2>
+    </div>
+
+    <!-- Target element with anm-flip-scroll="target" attribute -->
+    <div class="anm_flip_scroll_element" anm-flip-scroll="target">
+      <video
+        autoplay
+        loop
+        muted
+        poster="https://cdn.prod.website-files.com/66c798d77d6b6d284faa0b18/6708191d507dbf1554db1e0c_Main%20Grid%2005%20%281350%29-poster-00001.jpg"
+      >
+        <source
+          src="https://cdn.prod.website-files.com/66c798d77d6b6d284faa0b18/6708191d507dbf1554db1e0c_Main%20Grid%2005%20%281350%29-transcode.webm"
+          type="video/webm"
+        />
+        <source
+          src="https://cdn.prod.website-files.com/66c798d77d6b6d284faa0b18/6708191d507dbf1554db1e0c_Main%20Grid%2005%20%281350%29-transcode.mp4"
+          type="video/mp4"
+        />
+      </video>
+    </div>
+
+    <div class="anm_scroll_section is-content" anm-scroll-text="section" anm-scroll-start="top center">
+      <div class="anm_flip_scroll_container is-center">
+        <div class="anm_flip_scroll_zone" anm-flip-scroll="zone"></div>
+      </div>
+      <h2 class="anm_scroll_headline">Showcase your work like never before</h2>
+    </div>
+
+    <div class="anm_scroll_section is-content" anm-scroll-text="section" anm-scroll-start="top bottom">
+      <div class="anm_flip_scroll_container is-center">
+        <div class="anm_flip_scroll_zone" anm-flip-scroll="zone"></div>
+      </div>
+      <h2 class="anm_scroll_headline">Made with GSAP</h2>
+    </div>
+
+    <div class="anm_scroll_section is-content" anm-scroll-text="section" anm-scroll-start="top center">
+      <div class="anm_flip_scroll_container is-center">
+        <div class="anm_flip_scroll_zone" anm-flip-scroll="zone"></div>
+      </div>
+      <h2 class="anm_scroll_headline">Easy-to-use</h2>
+    </div>
+  </div>
+</div>
+
+<!-- Flip Scroll Section Styles -->
+<style>
+  :root {
+    --background-color: #f6f7f9;
+    --highlight-color: #c2ff5d;
+    --font-size-h2: 5rem;
+    --font-weight-h2: 500;
+    --zone-color: #071007;
+  }
+
+  .anm_scroll_content {
+    overflow: scroll;
+    height: 85vh;
+    margin-top: 1.5rem;
+  }
+
+  .anm_scroll_section {
+    display: flex;
+    height: 100vh;
+    padding: 5rem;
+    flex-direction: column;
+    background-color: var(--background-color);
+  }
+
+  .is-content {
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+  }
+
+  .is-scroll-teaser {
+    max-width: 60rem;
+    line-height: 1.2;
+  }
+
+  .u-text-h2 {
+    font-size: var(--font-size-h2);
+    line-height: 1.3em;
+    text-align: left;
+  }
+
+  .u-text-h1 {
+    font-size: var(--font-size-h2);
+    line-height: 1em;
+    font-weight: var(--font-weight-h2);
+    text-align: center;
+  }
+
+  .is-text-highlight {
+    display: inline-flex;
+    padding: 0.25rem 1rem;
+    background-color: var(--highlight-color);
+    border-radius: 1rem;
+  }
+
+  .anm_flip_scroll_zone {
+    background-color: var(--zone-color);
+  }
+
+  .anm_flip_scroll_element {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+  }
+
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>
+
+<script>
+  function flipScrollAnimation() {
+    gsap.registerPlugin(Flip)
+    gsap.registerPlugin(ScrollTrigger)
+
+    // Needs Flip and Scrolltrigger
+    const sections = document.querySelectorAll('[anm-flip-scroll=section]')
+
+    if (sections && sections.length > 0) {
+      sections.forEach(section => {
+        const scroller = section.closest('[anm-scroller=scroller]') || window
+
+        const targetElement = section.querySelector('[anm-flip-scroll=target]')
+        const zoneElements = section.querySelectorAll('[anm-flip-scroll=zone]')
+
+        let tl
+        function createTimeline() {
+          if (tl) {
+            tl.kill()
+            gsap.set(targetElement, { clearProps: 'all' })
+          }
+
+          const originalState = Flip.getState(targetElement)
+
+          tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: zoneElements[0],
+              scroller: scroller,
+              start: 'center center',
+              endTrigger: zoneElements[zoneElements.length - 1],
+              end: 'center center',
+              scrub: true,
+            },
+          })
+
+          zoneElements.forEach((zoneElement, index) => {
+            let nextZoneEl = zoneElements[index + 1]
+            if (nextZoneEl) {
+              let nextZoneDistance = nextZoneEl.offsetTop + nextZoneEl.offsetHeight / 2
+              let thisZoneDistance = zoneElement.offsetTop + zoneElement.offsetHeight / 2
+              let zoneDifference = nextZoneDistance - thisZoneDistance
+              tl.add(
+                Flip.fit(targetElement, nextZoneEl, {
+                  duration: zoneDifference,
+                  ease: 'power2.inOut',
+                })
+              )
+            }
+          })
+
+          Flip.fit(targetElement, originalState, { duration: 0 })
+        }
+        createTimeline()
+        // SETUP RESIZE
+        let resizeTimer
+        window.addEventListener('resize', function () {
+          clearTimeout(resizeTimer)
+          resizeTimer = setTimeout(function () {
+            createTimeline()
+          }, 250)
+        })
+      })
+    }
+  }
+
+  flipScrollAnimation()
+</script>

@@ -1,0 +1,100 @@
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
+
+<!-- Hover Variable Font HTML -->
+<!-- EDIT: anm-max-distance, anm-max-weight, anm-min-weight-->
+<h1 class="u-text-display" anm-variable-font="element" anm-max-distance="200" anm-max-weight="800" anm-min-weight="100">Hover me</h1>
+
+<!-- Hover Variable Font Styles -->
+<style>
+  :root {
+    --display-font-family: 'PlusJakartaSans', sans-serif;
+    --display-font-size: 7rem;
+    --display-line-height: 1em;
+    --display-letter-spacing: -0.03em;
+    --display-font-weight: 100;
+    --display-text-transform: none;
+  }
+
+  .u-text-display {
+    font-family: var(--display-font-family);
+    font-size: var(--display-font-size);
+    line-height: var(--display-line-height);
+    letter-spacing: var(--display-letter-spacing);
+    font-weight: var(--display-font-weight);
+    text-transform: var(--display-text-transform);
+  }
+
+  @font-face {
+    font-family: 'PlusJakartaSans';
+    src: url('../../../assets/fonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+  }
+</style>
+
+<script>
+  function variableFontHover() {
+    let mm = gsap.matchMedia()
+
+    // Add a media query that targets screens with a minimum width of 992px
+    mm.add('(min-width: 992px)', () => {
+      const fontWeightItems = document.querySelectorAll('[anm-variable-font=element]')
+
+      let MAX_DISTANCE = 200 // Adjust the maximum distance for font weight change as needed
+      let MAX_FONT_WEIGHT = 800 // Maximum font weight
+      let MIN_FONT_WEIGHT = 100 // Minimum font weight
+
+      if (fontWeightItems && fontWeightItems.length > 0) {
+        // Split up any text with the data attribute into individual characters
+        fontWeightItems.forEach(item => {
+          new SplitType(item, { types: 'chars' }).chars
+
+          const maxDistance = item.getAttribute('anm-max-distance')
+          const maxFontWeight = item.getAttribute('anm-max-weight')
+          const minFontWeight = item.getAttribute('anm-min-weight')
+
+          if (maxDistance) {
+            MAX_DISTANCE = parseInt(maxDistance)
+          }
+
+          if (maxFontWeight) {
+            MAX_FONT_WEIGHT = parseInt(maxFontWeight)
+          }
+
+          if (minFontWeight) {
+            MIN_FONT_WEIGHT = parseInt(minFontWeight)
+          }
+        })
+
+        // Add mousemove event listener to change font weight based on mouse position
+        document.addEventListener('mousemove', event => {
+          // Get the mouse position
+          const mouseX = event.pageX
+          const mouseY = event.pageY
+
+          fontWeightItems.forEach(item => {
+            item.querySelectorAll('.char').forEach(char => {
+              // Get the center of each character and calculate the distance from the mouse
+              const itemRect = char.getBoundingClientRect()
+              const itemCenterX = itemRect.left + itemRect.width / 2 + window.scrollX
+              const itemCenterY = itemRect.top + itemRect.height / 2 + window.scrollY
+
+              const distance = Math.sqrt(Math.pow(mouseX - itemCenterX, 2) + Math.pow(mouseY - itemCenterY, 2))
+
+              // map the distance to the font weight range
+              let fontWeight =
+                distance < MAX_DISTANCE
+                  ? gsap.utils.mapRange(0, MAX_DISTANCE, MIN_FONT_WEIGHT, MAX_FONT_WEIGHT, Math.max(0, MAX_DISTANCE - distance))
+                  : MIN_FONT_WEIGHT
+
+              gsap.to(char, { fontWeight, duration: 0.5 })
+            })
+          })
+        })
+      }
+    })
+  }
+
+  variableFontHover()
+</script>

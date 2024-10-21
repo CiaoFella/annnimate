@@ -1,0 +1,154 @@
+{
+  "type": "@webflow/XscpData",
+  "payload": {
+    "nodes": [
+      {
+        "_id": "f724ff3a-bb25-1fa4-4ee4-587f20b870b7",
+        "type": "Link",
+        "tag": "a",
+        "classes": ["91e7d494-c607-6173-95e8-4b253c875901", "920122ed-fdf9-fc9b-4ac0-2d109a32c01b"],
+        "children": ["c54d1577-befc-a6c4-60da-0fef91291501", "a803f187-91b1-f801-89f1-64fc0ed7a752"],
+        "data": {
+          "button": false,
+          "block": "inline",
+          "link": { "mode": "external", "url": "#" },
+          "eventIds": [],
+          "attr": { "id": "" },
+          "devlink": { "runtimeProps": {}, "slot": "" },
+          "displayName": "",
+          "xattr": [
+            { "name": "anm-rectangle-button", "value": "wrap" },
+            { "name": "anm-color", "value": "black" }
+          ],
+          "search": { "exclude": false },
+          "visibility": { "conditions": [] }
+        }
+      },
+      {
+        "_id": "c54d1577-befc-a6c4-60da-0fef91291501",
+        "type": "Block",
+        "tag": "div",
+        "classes": ["8f100a0d-985f-8f5d-71e9-66d2a5b47531"],
+        "children": ["acf795ae-f22d-eb72-2db2-0b955ccb979b"],
+        "data": {
+          "text": true,
+          "tag": "div",
+          "devlink": { "runtimeProps": {}, "slot": "" },
+          "displayName": "",
+          "attr": { "id": "" },
+          "xattr": [
+            { "name": "", "value": "" },
+            { "name": "anm-rectangle-button", "value": "text" }
+          ],
+          "search": { "exclude": false },
+          "visibility": { "conditions": [] }
+        }
+      },
+      { "_id": "acf795ae-f22d-eb72-2db2-0b955ccb979b", "text": true, "v": "Rectangle Button" },
+      {
+        "_id": "a803f187-91b1-f801-89f1-64fc0ed7a752",
+        "type": "Block",
+        "tag": "div",
+        "classes": ["aebc26de-b2e0-daf9-2e76-c8ff084b48c4", "3be67368-9417-38ed-f1af-2a50161fd610"],
+        "children": [],
+        "data": {
+          "text": false,
+          "tag": "div",
+          "devlink": { "runtimeProps": {}, "slot": "" },
+          "displayName": "",
+          "attr": { "id": "" },
+          "xattr": [{ "name": "anm-rectangle-button", "value": "rect" }],
+          "search": { "exclude": false },
+          "visibility": { "conditions": [] }
+        }
+      }
+    ],
+    "styles": [
+      {
+        "_id": "91e7d494-c607-6173-95e8-4b253c875901",
+        "fake": false,
+        "type": "class",
+        "name": "anm_rectangle_btn_wrap",
+        "namespace": "",
+        "comb": "",
+        "styleLess": "position: relative; overflow: hidden; padding-top: 1.5rem; padding-right: 4rem; padding-bottom: 1.5rem; padding-left: 4rem; border-top-left-radius: 0.5rem; border-top-right-radius: 0.5rem; border-bottom-left-radius: 0.5rem; border-bottom-right-radius: 0.5rem; background-color: hsla(216.00000000000014, 14.61%, 92.19%, 1.00);",
+        "variants": {},
+        "children": ["920122ed-fdf9-fc9b-4ac0-2d109a32c01b"],
+        "createdBy": "623a1cfb1e3b389e6ea3409f",
+        "origin": null,
+        "selector": null
+      },
+      {
+        "_id": "920122ed-fdf9-fc9b-4ac0-2d109a32c01b",
+        "fake": false,
+        "type": "class",
+        "name": "is-outline",
+        "namespace": "",
+        "comb": "&",
+        "styleLess": "display: inline-flex; border-top-style: solid; border-top-width: 1px; border-top-color: black; border-right-style: solid; border-right-width: 1px; border-right-color: black; border-bottom-style: solid; border-bottom-width: 1px; border-bottom-color: black; border-left-style: solid; border-left-width: 1px; border-left-color: black; background-color: hsla(0, 0.00%, 100.00%, 0.00); transition-property: border-color; transition-duration: 300ms; transition-timing-function: ease-in-out; color: hsla(82.59259259259258, 42.63%, 4.21%, 1.00); text-decoration: none;",
+        "variants": {
+          "main_hover": {
+            "styleLess": "border-top-color: #c2ff5d; border-right-color: #c2ff5d; border-bottom-color: #c2ff5d; border-left-color: #c2ff5d;"
+          }
+        },
+        "children": [],
+        "createdBy": "623a1cfb1e3b389e6ea3409f",
+        "origin": null,
+        "selector": null
+      },
+      {
+        "_id": "8f100a0d-985f-8f5d-71e9-66d2a5b47531",
+        "fake": false,
+        "type": "class",
+        "name": "anm_rectangle_btn_text",
+        "namespace": "",
+        "comb": "",
+        "styleLess": "position: relative; z-index: 1;",
+        "variants": {},
+        "children": [],
+        "createdBy": "623a1cfb1e3b389e6ea3409f",
+        "origin": null,
+        "selector": null
+      },
+      {
+        "_id": "aebc26de-b2e0-daf9-2e76-c8ff084b48c4",
+        "fake": false,
+        "type": "class",
+        "name": "anm_rectangle_btn_rect",
+        "namespace": "",
+        "comb": "",
+        "styleLess": "position: absolute; left: 0px; top: 100%; right: 0px; bottom: auto; z-index: 0; width: 100%; height: 100%; border-top-left-radius: 0.5rem; border-top-right-radius: 0.5rem; border-bottom-left-radius: 0.5rem; border-bottom-right-radius: 0.5rem; background-color: hsla(82.59259259259258, 42.63%, 4.21%, 1.00);",
+        "variants": {},
+        "children": ["3be67368-9417-38ed-f1af-2a50161fd610"],
+        "createdBy": "623a1cfb1e3b389e6ea3409f",
+        "origin": null,
+        "selector": null
+      },
+      {
+        "_id": "3be67368-9417-38ed-f1af-2a50161fd610",
+        "fake": false,
+        "type": "class",
+        "name": "is-accent",
+        "namespace": "",
+        "comb": "&",
+        "styleLess": "background-color: #c2ff5d;",
+        "variants": {},
+        "children": [],
+        "createdBy": "623a1cfb1e3b389e6ea3409f",
+        "origin": null,
+        "selector": null
+      }
+    ],
+    "assets": [],
+    "ix1": [],
+    "ix2": { "interactions": [], "events": [], "actionLists": [] }
+  },
+  "meta": {
+    "droppedLinks": 0,
+    "dynBindRemovedCount": 0,
+    "dynListBindRemovedCount": 0,
+    "paginationRemovedCount": 0,
+    "universalBindingsRemovedCount": 0,
+    "unlinkedSymbolCount": 0
+  }
+}

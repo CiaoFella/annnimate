@@ -1,0 +1,124 @@
+{
+  "type": "@webflow/XscpData",
+  "payload": {
+    "nodes": [
+      {
+        "_id": "5a37a3fc-711e-7124-2fda-b0c7dc1aad68",
+        "type": "Link",
+        "tag": "a",
+        "classes": ["78f25741-27b8-e27d-624a-6026ab6384cd"],
+        "children": ["6f189f7b-80bb-9969-5cdd-4330d170d157"],
+        "data": {
+          "button": false,
+          "block": "inline",
+          "link": { "mode": "external", "url": "#" },
+          "eventIds": [],
+          "attr": { "id": "" },
+          "devlink": { "runtimeProps": {}, "slot": "" },
+          "displayName": "",
+          "xattr": [
+            { "name": "anm-stagger-button", "value": "wrap" },
+            { "name": "anm-direction", "value": "up" },
+            { "name": "anm-reverse", "value": "false" }
+          ],
+          "search": { "exclude": false },
+          "visibility": { "conditions": [] }
+        }
+      },
+      {
+        "_id": "6f189f7b-80bb-9969-5cdd-4330d170d157",
+        "type": "Block",
+        "tag": "div",
+        "classes": ["d2022941-deec-01f0-8eae-5e30cfe7ba9f"],
+        "children": ["a3192e22-9a3a-e20f-318d-30925901eee3"],
+        "data": {
+          "text": false,
+          "tag": "div",
+          "devlink": { "runtimeProps": {}, "slot": "" },
+          "displayName": "",
+          "attr": { "id": "" },
+          "xattr": [],
+          "search": { "exclude": false },
+          "visibility": { "conditions": [] }
+        }
+      },
+      {
+        "_id": "a3192e22-9a3a-e20f-318d-30925901eee3",
+        "type": "Block",
+        "tag": "div",
+        "classes": ["a72c807d-fcc9-92b9-9ef9-d6e284ef95e5"],
+        "children": ["b5c40949-16b6-a43d-5681-7057547d2253"],
+        "data": {
+          "text": true,
+          "tag": "div",
+          "devlink": { "runtimeProps": {}, "slot": "" },
+          "displayName": "",
+          "attr": { "id": "" },
+          "xattr": [{ "name": "anm-stagger-button", "value": "text" }],
+          "search": { "exclude": false },
+          "visibility": { "conditions": [] }
+        }
+      },
+      { "_id": "b5c40949-16b6-a43d-5681-7057547d2253", "text": true, "v": "Stagger Button" }
+    ],
+    "styles": [
+      {
+        "_id": "78f25741-27b8-e27d-624a-6026ab6384cd",
+        "fake": false,
+        "type": "class",
+        "name": "anm_stagger_btn_wrap",
+        "namespace": "",
+        "comb": "",
+        "styleLess": "display: inline-flex; padding-top: 1rem; padding-right: 2rem; padding-bottom: 1rem; padding-left: 2rem; border-top-style: solid; border-top-width: 1px; border-top-color: black; border-right-style: solid; border-right-width: 1px; border-right-color: black; border-bottom-style: solid; border-bottom-width: 1px; border-bottom-color: black; border-left-style: solid; border-left-width: 1px; border-left-color: black; border-top-left-radius: 10rem; border-top-right-radius: 10rem; border-bottom-left-radius: 10rem; border-bottom-right-radius: 10rem; transition-property: border-color, background-color; transition-duration: 300ms, 300ms; transition-timing-function: ease-out, ease-out; color: hsla(82.59259259259258, 42.63%, 4.21%, 1.00); text-decoration: none;",
+        "variants": {
+          "main_hover": {
+            "styleLess": "border-top-color: #c2ff5d; border-right-color: #c2ff5d; border-bottom-color: #c2ff5d; border-left-color: #c2ff5d; background-color: #c2ff5d;"
+          }
+        },
+        "children": [],
+        "createdBy": "623a1cfb1e3b389e6ea3409f",
+        "origin": null,
+        "selector": null
+      },
+      {
+        "_id": "d2022941-deec-01f0-8eae-5e30cfe7ba9f",
+        "fake": false,
+        "type": "class",
+        "name": "anm_stagger_btn_text_wrap",
+        "namespace": "",
+        "comb": "",
+        "styleLess": "position: relative; overflow: hidden;",
+        "variants": {},
+        "children": [],
+        "createdBy": "623a1cfb1e3b389e6ea3409f",
+        "origin": null,
+        "selector": null
+      },
+      {
+        "_id": "a72c807d-fcc9-92b9-9ef9-d6e284ef95e5",
+        "fake": false,
+        "type": "class",
+        "name": "anm_stagger_btn_text",
+        "namespace": "",
+        "comb": "",
+        "styleLess": "line-height: 1.5em;",
+        "variants": {},
+        "children": [],
+        "createdBy": "623a1cfb1e3b389e6ea3409f",
+        "origin": null,
+        "selector": null
+      }
+    ],
+    "assets": [],
+    "ix1": [],
+    "ix2": { "interactions": [], "events": [], "actionLists": [] }
+  },
+  "meta": {
+    "droppedLinks": 0,
+    "dynBindRemovedCount": 0,
+    "dynListBindRemovedCount": 0,
+    "paginationRemovedCount": 0,
+    "universalBindingsRemovedCount": 0,
+    "unlinkedSymbolCount": 0
+  }
+}
